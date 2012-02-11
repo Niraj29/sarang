@@ -1,0 +1,27 @@
+<div style="padding-left: 20px;">
+	<br />
+<h1>Editing subdomain</h1>
+<br />
+</div>
+
+	<div id="fInfo">
+		<div class="leftpr">
+<%= form_for(@subdomain) do |f| %>
+  <%= render 'form' %>
+<% end %><%= link_to 'Show', @subdomain %> |
+<%= link_to @subdomain.user.company_name, user_path(@subdomain.user) %>
+		</div>
+	</div>
+<div class="clr"></div>
+  <div id="footer">
+  	<div style="float: left; padding-left: 20px;">
+  		<P>&nbsp;</p><P>&nbsp;</p>
+    &copy; 2011 Saranghomes
+    <a href="<%= root_url %>" style="border-left: 1px solid #000;">Home</a>
+    <a href="#" style="border-left: 1px solid #000;">About Us</a>
+    <a href="#" style="border-left: 1px solid #000;">Contact Us</a>
+    </div>
+    <div style="float:right; padding-right: 20px;">
+    	<a href="http://www.1by0creations.com">Created by : <%= image_tag('1by0_creations_logo.png', :size => '50x65', :title => '1 by 0 Creations') %></a>
+    </div>
+  </div>

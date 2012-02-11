@@ -1,0 +1,70 @@
+<div style="padding-left: 20px;">
+	<br />
+<h1><%= @user.company_name %></h1>
+<br />
+</div>
+
+	<div id="fInfo">
+		<div class="leftpr">
+<p><%= @user.email %></p>
+<br />
+<p><%= link_to 'Edit', edit_user_registration_path %></p>
+<p><%= link_to 'List of Users', users_path %></p>
+<br />
+<h3 style="color: #000; font-weight:bold;"><%= @user.company_name %>'s Subdomain</h3>
+<table>
+<% @user.subdomains.each do |subdomain| %>
+  <tr>
+    <td><%= link_to subdomain.name, subdomain %></td>
+    <td><%= link_to 'Edit', edit_subdomain_path(subdomain) %></td>
+    <td><%= link_to 'Delete', subdomain, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<br /><br /><br />
+
+<h3 style="color: #000; font-weight:bold;"><%= @user.company_name %>'s Properties</h3>
+<table width="100%" border="0" cell-padding="0">
+<% @user.propers.each do |proper| %>
+	<tr class="proptitle">
+    <td><%= proper.property_type %>, Sector <%= proper.sector %>, <%= proper.area %> for <%= proper.property_for %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+  	<td width="400"><%= image_tag proper.photo.url, :size => "600x200" %></td>
+    <td><%= link_to 'Show', proper %></td>
+    <td><%= link_to 'Edit', edit_proper_path(proper) %></td>
+    <td><%= link_to 'Delete', proper, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <tr height="20px;">
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <% end %>
+  </table>
+<br />
+<% if @user.subdomains.count < 1 %>
+<%= link_to "Add New Subdomain", new_user_subdomain_path(@user) %>
+<% end %>
+<%= link_to "Add Property", new_user_proper_path(@user) %>
+		</div>
+	</div>
+<div class="clr"></div>
+  <div id="footer">
+  	<div style="float: left; padding-left: 20px;">
+  		<P>&nbsp;</p><P>&nbsp;</p>
+    &copy; 2011 Saranghomes
+    <a href="<%= root_url %>" style="border-left: 1px solid #000;">Home</a>
+    <a href="#" style="border-left: 1px solid #000;">About Us</a>
+    <a href="#" style="border-left: 1px solid #000;">Contact Us</a>
+    </div>
+    <div style="float:right; padding-right: 20px;">
+    	<a href="http://www.1by0creations.com">Created by : <%= image_tag('1by0_creations_logo.png', :size => '50x65', :title => '1 by 0 Creations') %></a>
+    </div>
+  </div>

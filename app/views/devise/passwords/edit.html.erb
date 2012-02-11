@@ -1,0 +1,37 @@
+<div style="padding-left: 20px;">
+	<br />
+<h1>Change your password</h1>
+<br />
+</div>
+
+	<div id="fInfo">
+		<div class="leftpr">
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <p><%= f.label :password, "New password" %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation, "Confirm new password" %><br />
+  <%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.submit "Change my password" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+		</div>
+	</div>
+	<div class="clr"></div>
+  <div id="footer">
+  	<div style="float: left; padding-left: 20px;">
+  		<P>&nbsp;</p><P>&nbsp;</p>
+    &copy; 2011 Saranghomes
+    <a href="<%= root_url %>" style="border-left: 1px solid #000;">Home</a>
+    <a href="#" style="border-left: 1px solid #000;">About Us</a>
+    <a href="#" style="border-left: 1px solid #000;">Contact Us</a>
+    </div>
+    <div style="float:right; padding-right: 20px;">
+    	<a href="http://www.1by0creations.com">Created by : <%= image_tag('1by0_creations_logo.png', :size => '50x65', :title => '1 by 0 Creations') %></a>
+    </div>
+  </div>

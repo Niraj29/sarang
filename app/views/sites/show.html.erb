@@ -1,0 +1,25 @@
+<div style="padding-left: 20px;">
+	<br />
+<h1><%= @site.name %></h1>
+<br />
+</div>
+	<div id="fInfo">
+		<div class="leftpr">
+<p>Belongs to: <%= link_to @site.user.company_name, user_url(@site.user) %></p>
+		</div>
+	</div>
+<div class="clr"></div>
+  <div id="footer">
+  	<div style="float: left; padding-left: 20px;">
+  		<P>&nbsp;</p><P>&nbsp;</p>
+    &copy; 2011 Saranghomes
+    <a href="<%= root_url %>" style="border-left: 1px solid #000;">Home</a>
+    <a href="#" style="border-left: 1px solid #000;">About Us</a>
+    <a href="#" style="border-left: 1px solid #000;">Contact Us</a>
+    </div>
+    <div style="float:right; padding-right: 20px;">
+    	<a href="http://www.1by0creations.com">Created by : <%= image_tag('1by0_creations_logo.png', :size => '50x65', :title => '1 by 0 Creations') %></a>
+    </div>
+  </div>
+
+

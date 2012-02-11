@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  flat_no: MyString
+  building_name: MyString
+  plot: MyString
+  sector: MyString
+  area: MyString
+  pincode: 1
+  description: MyText
+  area_sqft: MyString
+  cost: MyString
+  property_type: MyString
+  property_for: MyString
+  utilities: MyString
+  amneties: MyString
+  user: 
+
+two:
+  flat_no: MyString
+  building_name: MyString
+  plot: MyString
+  sector: MyString
+  area: MyString
+  pincode: 1
+  description: MyText
+  area_sqft: MyString
+  cost: MyString
+  property_type: MyString
+  property_for: MyString
+  utilities: MyString
+  amneties: MyString
+  user: 

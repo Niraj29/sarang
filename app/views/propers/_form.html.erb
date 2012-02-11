@@ -1,0 +1,148 @@
+<%= form_for [@user, @proper], :html => { :multipart => true } do |f| %>
+  <% if @proper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proper.errors.count, "error") %> prohibited this proper from being saved:</h2>
+
+      <ul>
+      <% @proper.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field(:user_id, :value => @proper.user_id) %>
+<table align="center">
+	<tr>
+  <td></td>
+  	<td>
+  	<div class="field">
+    <%= f.hidden_field(:email, :value => @user.email) %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.hidden_field(:property_level, :value => @user.agent_type) %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p>Upload Picture</p></td>
+    <td>
+  	<div class="field"><br />
+    <p><%= f.file_field :photo %></p><br />
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :flat_no %></p><br /></td>
+    <td>
+  		<div class="field">
+    
+    <%= f.text_field :flat_no %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :building_name %></p><br /></td>
+  		<td>
+  <div class="field">
+    
+    <%= f.text_field :building_name %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td> <p><%= f.label :plot %></p><br /></td>
+  	<td>
+  <div class="field">
+    <%= f.text_field :plot %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :sector %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.text_field :sector %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :area %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.text_field :area %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :pincode %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.number_field :pincode %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :description %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.text_area( :description, :size => "40x5" ) %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :area_sqft %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.text_field :area_sqft %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :cost %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.text_field :cost %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td> <p><%= f.label :property_type %></p><br /></td>
+  	<td>
+  <div class="field">
+   
+    <%= f.select( :property_type, [ '1 BHK', '2 BHK', '3 BHK' ], {:style => "width: 160px;"} ) %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :property_for %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.select( :property_for, [ 'Sale', 'Rent' ], {:style => "width: 160px;"} ) %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :utilities %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.text_field :utilities %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td><p><%= f.label :amneties %></p><br /></td>
+  	<td>
+  <div class="field">
+    
+    <%= f.text_field :amneties %>
+  </div></td>
+  </tr>
+  <tr>
+  	<td></td>
+  	<td>
+  <div class="actions">
+    <p><%= f.submit( "Save Property" ) %></p>
+  </div></td>
+  </tr>
+  </table>
+<% end %>

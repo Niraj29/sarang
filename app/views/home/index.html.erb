@@ -1,0 +1,184 @@
+<div id="sideBar">
+	<div class="sideListing sideListingHome">
+      <div class="iconWrapper" style="font-size:20px;">
+      	<p>&nbsp;</p>
+        <h3 style="margin-left: -30px; background:#000; font-family: Trajan Pro; font-size: 18px;">FIND YOUR PROPERTY</h3>
+        <br />
+            <div class="search">
+			<%= form_for @search do |f| %>
+  				<%= f.label :property_type_contains, "Property Type :" %>
+  				<%= f.select :property_type_contains, [ '1 BHK', '2 BHK', '3 BHK' ], :include_blank => true %>
+  				<br /><br />
+  				<%= f.label :cost_gteq, "Price Range :" %>
+  				<br />
+  				<%= f.text_field :cost_gteq, :size => 8, :style => "background: #323232; border: 1px solid #000; color:#FFF;" %>
+  				<%= f.label :cost_lteq, "to" %>
+  				<%= f.text_field :cost_lteq, :size => 8, :style => "background: #323232; border: 1px solid #000; color:#FFF;" %>
+  				<br /><br />
+  				<%= f.label :area_contains, "Area :" %>
+  				<%= f.select( :area_contains, Proper.all.collect {|s| [ s.area, s.area ]}, :include_blank => true ) %>
+  				<br /><br />
+  				<%= f.label :amneties_contains, "Amneties :" %><br />
+  				<%= f.text_field :amneties_contains, :size => 28, :style => "background: #323232; border: 1px solid #000; color:#FFF;" %>
+  				<br /><br />
+  				<%= f.label :utilities_contains, "Utilities In Proximity :" %><br />
+  				<%= f.text_field :utilities_contains, :size => 28, :style => "background: #323232; border: 1px solid #000; color:#FFF;" %>
+  				<br /><br />
+  				<%= f.label :property_for_contains, "Interested In :" %>
+  				<%= f.radio_button( :property_for_contains, 'Sale' ) %> Buy
+   				<%= f.radio_button( :property_for_contains, 'Rent' ) %> Rent
+  				<br /><br />
+    			<%= f.submit "SEARCH FOR MY DREAM HOUSE" %>
+    			<br /><br />
+  			<% end %>
+  			</div>
+	  </div>
+    </div>
+      
+      <div class="sideListing sideListingHome">     
+          <div class="info" style="font-size:16px;">
+            <div class="sb">
+        	  <p><a href="#">
+       	      COMPARE PROPERTIES</a></p>
+        	  <p>&nbsp;</p>
+        	  <form action="" method="get">
+                <p>
+                  <label>Property 1 :</label>
+                  <input name="id1" type="text" />
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label>Property 2 :</label>
+                  <input name="id2" type="text" />
+                </p>
+                <p>&nbsp;</p>
+                <p align="center">
+                  <input name="submit" type="submit" value="Compare" id="opener" />
+                </p>
+              </form>
+        	  <p><a href="causes-jeevandata.php"><br />
+      	    </a></p>
+            </div>
+          </div>
+      </div>
+        
+        
+</div>
+
+
+<div id="content">
+
+	<% params.each do |param| %>
+		<% if param[0] == 'id1' || param[0] == 'id2' %>
+		<div id="featuredInfo">
+			<div class="leftpro">
+			<% id = param[1] %>
+			<% @propers.each do |proper|%>
+				<% if proper.id == id.to_i %>
+					<p class="label">Property #<%= proper.id %></p>
+					<p class="label" style="color:#C03; font-size:14px;"><%= proper.property_type %> for <%= proper.property_for %>, <%= proper.area %></p>
+					<table width="100%">
+						<tr>
+							<td colspan="3" align="center"><%= image_tag proper.photo.url, :size => "550x200" %></td>
+						</tr>
+						<tr>
+							<td width="60"><p style="font-weight:bold;">Area : </p></td>
+							<td width="8"></td>
+							<td><p><%= proper.area_sqft %> sq-ft.</p></td>
+						</tr>
+						<tr>
+							<td><p style="font-weight:bold;">Total Price : </p></td>
+							<td width="15px;"></td>
+							<td><p>Rs. <%= proper.cost %></p></td>
+						</tr>
+						<tr>
+							<td><p style="font-weight:bold;">Description : </p></td>
+							<td width="15px;"></td>
+							<td><p><%= proper.description %></p></td>
+						</tr>
+						<tr>
+							<td><p style="font-weight:bold;">Amneties : </p></td>
+							<td width="15px;"></td>
+							<td><p><%= proper.amneties %></p></td>
+						</tr>
+						<tr>
+							<td><p style="font-weight:bold;">Utilities : </p></td>
+							<td width="15px;"></td>
+							<td><p><%= proper.utilities %></p></td>
+						</tr>
+					</table>
+				<% end %>
+			<% end %>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+	
+		
+		
+	<% if params.count <= 2 %>
+        <div class="middle">
+       	  <div style="width:600; height:100%">
+          <div style="float:left; width:600" align="center">
+          <%= image_tag('map.jpg')%>
+          </div>
+       	  </div>
+		</div>
+
+
+      <div style="float:left; width:100%">
+      <p style="font-size:18px; font-family:Verdana, Geneva, sans-serif;">&nbsp;</p>
+      <p style="font-size:18px; font-family:Verdana, Geneva, sans-serif; color:#444">WHY REGISTER WITH US?</p>
+      <p style="font-size:18px; font-family:Verdana, Geneva, sans-serif;">&nbsp;</p>
+      </div>
+      <br/>
+      <br/><br/><br/><br/>
+      <div id="featuredInfo">
+		<div class="leftpro">
+        	<p class="label">Users :</p>
+            <ul style="font-family:Verdana, Geneva, sans-serif; font-size:14px; color:#C00">
+  <li>Description:</li>
+  <p>&nbsp;</p>
+  <li>Description:</li>
+  <p>&nbsp;</p>
+  <li>Description:</li>
+  <p>&nbsp;</p>
+  <li>Description:</li>
+  <p>&nbsp;</p>
+			</ul>
+        </div>
+        
+        
+        <div class="leftpro">
+        	<p class="label">Agents :</p>
+          <p class="stat">&nbsp;</p>
+        <ul style="font-family:Verdana, Geneva, sans-serif; font-size:14px; color:#C00">
+  <li>Description:</li>
+  <p>&nbsp;</p>
+  <li>Description:</li>
+  <p>&nbsp;</p>
+  <li>Description:</li>
+  <p>&nbsp;</p>
+  <li>Description:</li>
+  <p>&nbsp;</p>
+		</ul>
+        </div>
+	  </div>
+	
+	<% end %> 
+	      
+</div>
+       
+  <div class="clr"></div>
+  <div id="footer">
+  	<div style="float: left; padding-left: 20px;">
+  		<P>&nbsp;</p><P>&nbsp;</p>
+    &copy; 2011 Saranghomes
+    <a href="<%= root_url %>" style="border-left: 1px solid #000;">Home</a>
+    <a href="#" style="border-left: 1px solid #000;">About Us</a>
+    <a href="#" style="border-left: 1px solid #000;">Contact Us</a>
+    </div>
+    <div style="float:right; padding-right: 20px;">
+    	<a href="http://www.1by0creations.com">Created by : <%= image_tag('1by0_creations_logo.png', :size => '50x65', :title => '1 by 0 Creations') %></a>
+    </div>
+  </div>

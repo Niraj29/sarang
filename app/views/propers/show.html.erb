@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+	<div id="fInfo">
+		<div class="leftpr">
+
+<p>
+	<div id="krpanoH" style="width:100%; align: center;">
+		
+	</div>
+</p>
+<br />
+<p>
+  <b>Address:</b>
+  <%= @proper.flat_no %>, <%= @proper.building_name %>, Plot <%= @proper.plot %>, <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sector <%= @proper.sector %>, <%= @proper.area %>. - <%= @proper.pincode %>.<br />
+</p>
+<br />
+<p>
+  <b>Description:</b>
+  <%= @proper.description %>
+</p>
+<br />
+<p>
+  <b>Area sqft:</b>
+  <%= @proper.area_sqft %>
+</p>
+<br />
+<p>
+  <b>Cost:</b>
+  <%= @proper.cost %>
+</p>
+<br />
+<p>
+  <b>Property type:</b>
+  <%= @proper.property_type %>
+</p>
+<br />
+<p>
+  <b>Property for:</b>
+  <%= @proper.property_for %>
+</p>
+<br />
+<p>
+  <b>Utilities:</b>
+  <%= @proper.utilities %>
+</p>
+<br />
+<p>
+  <b>Amneties:</b>
+  <%= @proper.amneties %>
+</p>
+<br />
+<br />
+<br />
+<%= link_to 'Edit', edit_proper_path(@proper) %> |
+<%= link_to 'Back', propers_path %>
+		</div>
+	</div>
+
+<script type="text/javascript">
+// <![CDATA[
+	if (typeof(deconcept) !== 'undefined' && deconcept.SWFObjectUtil.getPlayerVersion().major >= 6)
+	{
+		var so = new SWFObject("../../assets/krpano.swf", "krpanoSWFObject1", "575", "275", "9.0.28","#000000");
+		so.addParam("allowFullScreen","true");
+		so.addVariable("pano", "<%= @proper.id %>.xml");
+		so.useExpressInstall('../../assets/swfobject/expressinstall.swf');
+		so.setAttribute('xiRedirectUrl', window.location);
+		if ( so.write("krpanoH") ) { var mousewheelfixes = new SWFkrpanoMouseWheel(so); }
+	}
+	else
+	{
+		document.getElementById("krpanoH").innerHTML = '<table width="100%" height="100%"><tr valign="middle"><td><center>ERROR:<br><br>Adobe Flash Player 9 needed<br><br><br><a href="http://www.adobe.com/go/getflashplayer/"  target="_blank"><IMG SRC="http://www.macromedia.com/images/shared/download_buttons/get_flash_player.gif" BORDER="1"></a><br>...click here to download...<br><br><br><br></center></td></tr></table>';
+	}
+// ]]>
+</script>
+
+  <div class="clr"></div>
+  <div id="footer">
+  	<div style="float: left; padding-left: 20px;">
+  		<P>&nbsp;</p><P>&nbsp;</p>
+    &copy; 2011 Saranghomes
+    <a href="<%= root_url %>" style="border-left: 1px solid #000;">Home</a>
+    <a href="#" style="border-left: 1px solid #000;">About Us</a>
+    <a href="#" style="border-left: 1px solid #000;">Contact Us</a>
+    </div>
+    <div style="float:right; padding-right: 20px;">
+    	<a href="http://www.1by0creations.com">Created by : <%= image_tag('1by0_creations_logo.png', :size => '50x65', :title => '1 by 0 Creations') %></a>
+    </div>
+  </div>

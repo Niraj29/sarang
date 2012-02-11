@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sarang</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "swfobject.js" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="outerWrapper">
+		<div id="header">
+  			<div id="headerNav">
+    			<ul class="level-0" id="cssmw3">
+    			<li><a href="#">Contact Us</a></li>
+            	<li><a href="#">Leasing</a></li>
+            	<li><%= link_to "Renting", propers_path %></li>
+    			<li><a href="properties.html">Selling</a></li>
+  				<li><%= link_to "Buying", propers_path %></li>
+  				<li><%= link_to "Home", root_url %></li>
+				</ul>
+  			</div>
+    			<a href="#"><div id="logo"><%= image_tag('Untitled.png', :size => '300x129') %></div></a>
+    
+  		</div>
+  		<div id="userNav">
+  			<div id="log">
+<% if user_signed_in? %>
+		<div id="user_profile">
+			<ul class="level-0" id="cssmw3">
+				<li><%= link_to "Profile", current_user %></li>
+				
+			</ul>
+		</div>
+			Signed in as <%= current_user.email %>. Not you?
+			<%= link_to "Sign Out", destroy_user_session_path %>
+		<% else %>
+			Not Logged In. 
+			<%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
+		<% end %>
+		</div>
+		</div>
+		
+		<div id="contentWrapper">
+			<%= yield %>
+		</div>
+      </div>
+</body>
+</html>

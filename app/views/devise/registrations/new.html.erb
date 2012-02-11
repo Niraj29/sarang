@@ -1,0 +1,61 @@
+<div style="padding-left: 20px;">
+	<br />
+<h1>Sign up</h1>
+<br />
+</div>
+
+<div id="fInfo">
+		<div class="leftpr">
+			<div>
+			  <p style="color: green"><%= notice %></p>
+            </div>
+            <div>  
+			  <p style="color: red"><%= alert %></p>
+		</div>
+<p>Already have an account? <%= link_to "Sign In", new_user_session_path %></p><br />
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p><%= f.label :email %><br />
+  <%= f.email_field :email %></p>
+	<br />
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+	<br />
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></p>
+    <br />
+  <p><%= f.label :company_name %><br />
+  <%= f.text_field :company_name%></p>
+    <br />
+  <p><%= f.label :contact_person %><br />
+  <%= f.text_field :contact_person%></p>
+    <br />
+  <p><%= f.label :contact_no %><br />
+  <%= f.text_field :contact_no%></p>
+    <br />
+  <p><%= f.label :sales_team_contact %><br />
+  <%= f.text_field :sales_team_contact%></p>
+    <br />
+  <p><%= f.label :agent_type %><br />
+  <%= f.select( :agent_type, [ 'Bronze', 'Gold', 'Silver' ])%></p>
+    <br />
+  <p><%= f.submit "Sign up" %></p>
+<% end %>
+	<br />
+<%= render :partial => "devise/shared/links" %>
+		</div>
+</div>
+<div class="clr"></div>
+  <div id="footer">
+  	<div style="float: left; padding-left: 20px;">
+  		<P>&nbsp;</p><P>&nbsp;</p>
+    &copy; 2011 Saranghomes
+    <a href="<%= root_url %>" style="border-left: 1px solid #000;">Home</a>
+    <a href="#" style="border-left: 1px solid #000;">About Us</a>
+    <a href="#" style="border-left: 1px solid #000;">Contact Us</a>
+    </div>
+    <div style="float:right; padding-right: 20px;">
+    	<a href="http://www.1by0creations.com">Created by : <%= image_tag('1by0_creations_logo.png', :size => '50x65', :title => '1 by 0 Creations') %></a>
+    </div>
+  </div>

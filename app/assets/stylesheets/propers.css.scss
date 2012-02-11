@@ -1,0 +1,68 @@
+// Place all the styles related to the Propers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#fInfo {
+	overflow: hidden;
+	background-image: url(none);
+	background-repeat: no-repeat;
+	background-position: 130px 0px;
+	color: #999361;
+	width: 980px;
+	padding-left: 20px;
+	padding-top: 10px;
+}
+#fInfo .leftpr {
+	float: left;
+	width: 920px;
+	text-align: justify;
+	padding: 10px 15px 10px 15px;
+	border: 1px solid #CCC;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	margin-bottom: 15px;
+	background-color:#EFEFEF;
+}
+#fInfo .leftpr .proptitle {
+	color: #003d79;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	width: 100%;
+	background: #DDD;
+	margin-left: -6px;
+	padding: 5px 0px 5px 10px;
+}
+#fInfo .searchpr {
+	font-family: Trajan Pro;
+	font-size: 14px;
+	float: left;
+	width: 920px;
+	text-align: justify;
+	padding: 10px 15px 10px 15px;
+	border: 1px solid #000;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	margin-bottom: 15px;
+	background-color:#121212;
+}
+.colm{
+	border-right: 1px dotted #333;
+}
+.search {
+	font-family: Trajan Pro;
+	font-size: 14px;
+	float: left;
+	width: 920px;
+	text-align: justify;
+	padding: 10px 15px 10px 15px;
+	border: 1px solid #000;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	margin-bottom: 15px;
+	background-color:#121212;
+}
